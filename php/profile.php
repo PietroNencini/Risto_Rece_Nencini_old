@@ -38,7 +38,7 @@
     </head>
     <body id="profile_page" class="has_footer">
         
-        <header class="w-100 bg-warning">
+        <header class="nav_bar_keeper w-100 bg-warning">
             <div class="container">
                 <nav class="navbar navbar-expand-lg sticky-top">
                     <div class="container-fluid fs-5">
@@ -136,9 +136,9 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
         <!--SCRIPT PERSONALI-->
-        <script src="../javascript/script.js"></script>
-        <script src="../javascript/footer.js"></script>
-        <script src="../javascript/logout.js"></script>
+        <script src="../javascript/frontend/script.js"></script>
+        <script src="../javascript/frontend/footer.js"></script>
+        <script type="module" src="../javascript/frontend/logout.js"></script>
     </body>
 
 </html>

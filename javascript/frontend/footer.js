@@ -5,7 +5,7 @@ if(space[0].classList.contains("has_footer")) {
 
 function createFooter() {
     let footer = document.createElement("footer");
-    footer.className = "bg-warning py-4";
+    footer.className = "bg-warning pt-3 pb-1";
     
     let container = document.createElement("div");
     container.className = "text-center";
@@ -29,7 +29,7 @@ function createFooter() {
 
 function createFooterColumn(title, text, icon) {
     let col = document.createElement("div");
-    col.className = "col-12 col-md-3 mb-3";
+    col.className = "footer_column col-12 col-md-3";
 
     let heading = document.createElement("h5");
     heading.innerHTML = `${icon} ${title}`;

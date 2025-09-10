@@ -1,8 +1,8 @@
 <?php
-session_start();
+    session_start();
 
-if (!isset($_SESSION["error_code"]))
-    $_SESSION["error_code"] = 0;
+    if (!isset($_SESSION["error_code"]))
+        $_SESSION["error_code"] = 0;
 
 ?>
 
@@ -33,7 +33,7 @@ if (!isset($_SESSION["error_code"]))
     </header>-->
 
 
-    <header class="w-100 bg-warning">
+    <header class="nav_bar_keeper w-100 bg-warning">
         <div class="container">
             <nav class="navbar navbar-expand-lg sticky-top">
                 <div class="container-fluid fs-5">
@@ -138,8 +138,8 @@ if (!isset($_SESSION["error_code"]))
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
         <!--? JAVASCRIPT PERSONALE-->
-        <script src="./javascript/script.js"></script>
-        <script src="./javascript/footer.js"></script>
+        <script src="./javascript/frontend/script.js"></script>
+        <script src="./javascript/frontend/footer.js"></script>
 </body>
 
 </html>

@@ -85,14 +85,6 @@
                                             </a>";
                                     }
                                 ?>
-                                <!--
-                                <a class="nav-link" href="../php/profile.php">
-                                    <span class="d-flex align-items-center"></span>
-                                        <i class="bi bi-person-fill" style="font-size: 3rem;" id="profile_icon"></i>
-                                    </span>
-                                </a>
-                                -->
-                                <!--<button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>-->
                             </div>
                         </div>
                     </div>
@@ -100,6 +92,42 @@
             </nav>
         </div>
     </header>
+
+    <!--
+    <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+            <div class="container-fluid fs-5">
+                <a class="navbar-brand jaini text-center" href="../pages/website_intro.php">
+                    <span style="font-size: 3rem;">
+                        <img alt="risto&rece" class="d-inline-block align-text-center" src="../images/icons/R&R_definitivo.png" width="96" />
+                        <span class="ms-2">RISTO&RECE</span>
+                    </span>
+                </a>
+                <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ps-3" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/website_intro.php">Homepage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.php">Indice</a>
+                        </li>
+                    </ul>
+                    <div class="ms-auto" role="search">
+                        <div class="profile_elements" id="nav_right">
+                            <a class="nav-link w-50" href="../#">
+                                <button class="btn btn-primary fw-bold">REGISTRATI</button>
+                            </a>
+                            <a class="nav-link w-50" href="../">
+                                <button class="btn btn-success fw-bold">ACCEDI</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+                                -->
 
     <div class="content">
         <div class="w-75 mx-auto bg-secondary-subtle p-5 rounded-5" id="informazioni">
@@ -125,11 +153,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <!--SCRIPT PERSONALI-->
-    <script src="../javascript/script.js"> </script>
-    <script src="../javascript/footer.js"> </script>
+    <script src="../javascript/frontend/script.js"> </script>
+    <script src="../javascript/frontend/footer.js"> </script>
     <?php
         if(isset($_SESSION["session_user"])) {
-            echo "<script src='../javascript/logout.js'></script>";
+            echo "<script type='module' src='../javascript/frontend/logout.js'></script>";
         }
     ?>
 </body>

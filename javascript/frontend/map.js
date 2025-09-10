@@ -9,8 +9,8 @@ function getCoordinates(id_ristorante) {
         method: GET,
     })
     .then(response => response.json())
-    .then(() => {
-        return 
+    .then(data => {
+        return [data.lat, data.lon]; 
     })
 }
 

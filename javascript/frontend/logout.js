@@ -1,56 +1,17 @@
-const BASE_FOLDERS = ["php", "pages", "javascript", "css", "images"]
+import {getGoodPath} from "../modules/relocator.js";
+import { askIfLogged } from "../modules/utils.js";
 
-function findBaseFolder(currentPath) {
-    let splitted = currentPath.split("/");
-    console.log(splitted);
-    for(let i = 0; i<splitted.length; i++) {
-        for(let j = 0; j<BASE_FOLDERS.length; j++) {
-            if(splitted[i] == BASE_FOLDERS[j]) {
-                console.log(BASE_FOLDERS[j]);
-                return  BASE_FOLDERS[j];
-            }
-        }
-    }
-    return -1;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     let currentPath = window.location.pathname;
-    console.log(currentPath);
-
-    let nearest_base_folder = findBaseFolder(currentPath);
-
-    // Se la cartella si base esiste esiste nel percorso, rimuovi tutto ciò che viene prima
-    let index = currentPath.indexOf(nearest_base_folder);
-    let cleanedPath = index !== -1 ? currentPath.slice(index) : currentPath;
-
-    console.log(cleanedPath);
-
-    // Trova la profondità della pagina rispetto alla root visibile in URL
-    let depth = Math.max(0, cleanedPath.split("/").length -1);              // Si deve mettere -1 perché se no prende la stringa vuota "" che sta prima del primo slash 
-    console.log(depth);
-
-    // Risali di "depth" livelli 
-    let path = "../".repeat(depth) + "php/scripts/logout_script.php"; 
-    console.log(path);
-    createLogoutButton();
-    createBox(path);
+    let good_path = getGoodPath(currentPath, "php/scripts/logout_script.php");
+    createBox(good_path);
+    if(await askIfLogged()) {
+        document.addEventListener("right-created", function (event) {
+            createLogoutButton();
+        })
+    }
 });
 
-/** 
- * <!--<div class="logout-content">
-            <h2> Sei sicuro di voler effettuare la disconnessione? </h2>
-            <h5> Sarà necessario ripetere l'accesso per poter tornare a questa pagina </h5>
-            <div class="buttons">
-                <form action="./scripts/logout_script.php" method="post">
-                    <button id="confirm-logout" type="submit" class="btn btn-danger"
-                        onclick="hide('logout-box'), enable_scroll()">CONFERMA</button>
-                    <button id="cancel-logout" type="button" class="btn btn-outline-danger"
-                        onclick="hide('logout-box'), enable_scroll()">ANNULLA</button>
-                </form>
-            </div>
-        </div>-->
-*/
 function createBox(path) {
     // Recupera il div con id logout-box
     let logoutBox = document.getElementById("logout-box");
@@ -78,6 +39,7 @@ function createBox(path) {
 
     // Form
     let form = document.createElement("form");
+    //* QUI VIENE USATO IL PERCORSO PASSATO COME PARAMETRO
     form.action = path;
     form.method = "post";
 
@@ -109,21 +71,6 @@ function createBox(path) {
     logoutBox.appendChild(logoutContent);
 }
 
-
-/**
- * <!--<button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>-->
-                                <!-- From Uiverse.io by vinodjangid07 -->
-                                <!--<button id="logout_button" class="Btn mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()">
-                                    <div class="sign">
-                                        <svg viewBox="0 0 512 512">
-                                            <path
-                                                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <div class="text">Logout</div>
-                                </button>-->
- */
 function createLogoutButton() {
     // Recupera il div con id nav_right
     let navRight = document.getElementById("nav_right");

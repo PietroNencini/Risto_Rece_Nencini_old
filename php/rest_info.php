@@ -58,7 +58,7 @@
             <h1 class="home_title jaini text-center"> RISTO&RECE </h1>
         </header>-->
 
-        <header class="w-100 bg-warning">
+        <header class="nav_bar_keeper w-100 bg-warning">
             <div class="container">
                 <nav class="navbar navbar-expand-lg sticky-top">
                     <div class="container-fluid fs-5">
@@ -197,10 +197,10 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
         <!--MIO SCRIPT-->
-        <script src="../javascript/map.js"></script>
-        <script src="../javascript/script.js"></script>
-        <script src="../javascript/footer.js"></script>
-        <script src="../javascript/logout.js"></script>
+        <script src="../javascript/frontend/map.js"></script>
+        <script src="../javascript/frontend/script.js"></script>
+        <script src="../javascript/frontend/footer.js"></script>
+        <script type="module" src="../javascript/frontend/logout.js"></script>
         <script>
             setAverage(<?php echo $avg ?>);
         </script>

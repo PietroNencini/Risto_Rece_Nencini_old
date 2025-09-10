@@ -5,7 +5,6 @@
     --standard-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
-
 html, body {
     height: 100%;
     margin: 0;
@@ -27,7 +26,7 @@ html, body {
 }
 
 footer {
-    padding: 20px;
+    padding: 15px 20px 0 20px;
     text-align: center;
     width: 100%;
 }
@@ -89,6 +88,10 @@ input.form_input {
 
 input.form_input:active {
     border-bottom: blue solid 2px;
+}
+
+input.del_rev {
+    border-color: gray;
 }
 
 input[type="text"]:focus,
@@ -196,6 +199,10 @@ div.profile_elements {
 
     #insert_review_space select, #insert_review_space button {
         width: 100% !important;
+    }
+
+    div.footer_column {
+        margin-bottom: 1.5rem !important;
     }
 }
 

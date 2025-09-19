@@ -197,6 +197,7 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
         <!--MIO SCRIPT-->
+        <script type="module" src="../javascript/frontend/navbar.js"></script>
         <script src="../javascript/frontend/map.js"></script>
         <script src="../javascript/frontend/script.js"></script>
         <script src="../javascript/frontend/footer.js"></script>

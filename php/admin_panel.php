@@ -57,7 +57,8 @@
 </head>
 
 <body id="admin_page" onload="showMap('admin_map' , 43.77311306353422, 11.255404837603264, false, true)">
-    <header class="d-flex align-items-center justify-content-center text-white"
+    
+<header class="d-flex align-items-center justify-content-center text-white"
         style="background-color: rgb(0, 9, 145)">
         <h1 class="home_title jaini text-center"> Pagina di amministrazione </h1>
     </header>

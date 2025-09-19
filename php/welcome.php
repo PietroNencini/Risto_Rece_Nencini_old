@@ -1,6 +1,8 @@
 <?php
+    const MAX_REVIEW = 5;
+    
     session_start();
-
+    
     include "connection.php";
 
     if (!isset($_SESSION["error_code"])) {
@@ -27,6 +29,8 @@
         header("Location: ../pages/error.html");
         exit;
     }
+
+    
 
 ?>
 
@@ -56,39 +60,7 @@
 
     <header class="nav_bar_keeper w-100 bg-warning">
         <div class="container">
-            <nav class="navbar navbar-expand-lg sticky-top">
-                <div class="container-fluid fs-5">
-                    <a class="navbar-brand jaini text-center" href="../pages/website_intro.php">
-                        <span style="font-size: 3rem;">
-                            <img src="../images/icons/R&R_definitivo.png" alt="risto&rece" width="96px"
-                            class="d-inline-block align-text-center">
-                        <span class="ms-2">RISTO&RECE </span> </span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse ps-3" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pages/website_intro.php">Homepage</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Area Personale</a>
-                            </li>
-                        </ul>
-                        <div class="ms-auto" role="search">
-                            <div class="profile_elements" id="nav_right">
-                                <a class="nav-link" href="profile.php">
-                                    <span class="d-flex align-items-center"></span>
-                                        <i class="bi bi-person-fill" style="font-size: 3rem;" id="profile_icon"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <!--Javascript è il tuo turno-->
         </div>
     </header>
 
@@ -289,7 +261,7 @@
                                 include "./scripts/utils.php";
                                 $required_id = getUserIDByUsername($logged_user);
                                 $rev_query = "SELECT RT.nome AS Ristorante, RT.Indirizzo, RV.voto as Valutazione, RV.data_rec as Data, RV.id_recensione as ID  FROM recensione RV INNER JOIN ristorante RT ON RV.id_ristorante = RT.id_ristorante WHERE RV.id_utente = $required_id";
-                                $rev_result = $rev_result = $conn->query(query: $rev_query);
+                                $rev_result = $conn->query(query: $rev_query);
                                 if ($rev_result) {
                                     $num_rec_output = "<p class='fs-4 text-center my-1'> Recensioni totali: $rev_result->num_rows </p>";
                                     if ($rev_result->num_rows > 0) {
@@ -299,12 +271,16 @@
                                                 echo "<th> $field->name </th>";
                                             }
                                         }
-                                        echo " <th> SELEZIONA </th> ";
+                                        echo " <th class='text-center'> SELEZIONA </th> ";
                                         echo "</tr> </thead> <tbody>";
                                         while ($row = $rev_result->fetch_assoc()) {
                                             echo "<tr>";
                                             foreach ($row as $key => $value) {
-                                                if($key != "ID") {
+                                                if($key == "Valutazione") {
+                                                    echo "<td style='color: #FFD700;'>". str_repeat("<i class='bi bi-star-fill'></i>", $value). 
+                                                    str_repeat("<i class='bi bi-star'></i>", times: MAX_REVIEW - $value)
+                                                    ."</td>";
+                                                } else if($key != "ID") {
                                                     echo "<td> $value </td>";
                                                 }
                                             }
@@ -349,6 +325,7 @@
         crossorigin="anonymous"></script>
     <!--? JAVASCRIPT PERSONALE-->
     <script src="../javascript/frontend/script.js"></script>
+    <script type="module" src="../javascript/frontend/navbar.js"></script>
     <script type="module" src="../javascript/frontend/logout.js"></script>
     <script src="../javascript/frontend/footer.js"></script>
 

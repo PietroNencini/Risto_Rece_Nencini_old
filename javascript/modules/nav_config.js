@@ -6,9 +6,9 @@ export const CONFIG_BY_PATH = {
     "/index.php": {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
-        index: "#",
-        registrazione: "php/registration.php",
-        welcome: null,
+        index: null,
+        registration: "php/registration.php",
+        welcome: "php/welcome.php",
         profile: null,
         //logout: null    
     },
@@ -16,8 +16,8 @@ export const CONFIG_BY_PATH = {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
         index: "index.php",
-        registrazione: "#",
-        welcome: null,
+        registration: null,
+        welcome: "php/welcome.php",
         profile: null,
         //logout: null
     },
@@ -25,7 +25,7 @@ export const CONFIG_BY_PATH = {
         homepage: "#",
         restaurants: "php/restaurants.php",
         index: "index.php",                         //? potrebbe
-        registrazione: "php/registration.php",      //? potrebbe
+        registration: "php/registration.php",      //? potrebbe
         welcome: "php/welcome.php",               //? potrebbe
         profile: "php/profile.php",                 //? potrebbe
         //logout: "php/scripts/logout_script.php"     //? potrebbe
@@ -34,7 +34,7 @@ export const CONFIG_BY_PATH = {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
         index: null,
-        registrazione: null,
+        registration: null,
         welcome: "#",
         profile: "php/profile.php",
         //logout: "php/scripts/logout_script.php"
@@ -43,7 +43,7 @@ export const CONFIG_BY_PATH = {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
         index: null,
-        registrazione: null,
+        registration: null,
         welcome: "php/welcome.php",
         profile: "#",
         //logout: "php/scripts/logout_script.php"
@@ -52,7 +52,7 @@ export const CONFIG_BY_PATH = {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
         index: "index.php",                             //? potrebbe
-        registrazione: "php/registration.php",          //? potrebbe
+        registration: "php/registration.php",          //? potrebbe
         welcome: "php/welcome.php",                   //? potrebbe
         profile: "php/profile.php",                     //? potrebbe
         //logout: "php/scripts/logout_script.php"         //? potrebbe
@@ -61,7 +61,7 @@ export const CONFIG_BY_PATH = {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
         index: "index.php",                             //? potrebbe
-        registrazione: "php/registration.php",          //? potrebbe
+        registration: "php/registration.php",          //? potrebbe
         welcome: "#",                                 //? potrebbe
         profile: null,                                   //? potrebbe
         //logout: "php/scripts/logout_script.php"         //? potrebbe
@@ -74,7 +74,7 @@ export const CONFIG_BY_PATH = {
         homepage: "pages/website_intro.php",
         restaurants: "php/restaurants.php",
         index: "#",
-        registrazione: "php/registration.php",
+        registration: "php/registration.php",
         benvenuto: null,
         profile: null,
         logout: null    
@@ -83,7 +83,7 @@ export const CONFIG_BY_PATH = {
         homepage: "../pages/website_intro.php",
         restaurants: "restaurants.php",
         index: "../index.php",
-        registrazione: "#",
+        registration: "#",
         benvenuto: null,
         profile: null,
         logout: null
@@ -92,7 +92,7 @@ export const CONFIG_BY_PATH = {
         homepage: "#",
         restaurants: "../php/restaurants.php",
         index: "../index.php",                      //? potrebbe
-        registrazione: "../php/registration.php",   //? potrebbe
+        registration: "../php/registration.php",   //? potrebbe
         benvenuto: "../php/welcome.php",            //? potrebbe
         profile: "../php/profile.php",              //? potrebbe
         logout: "../php/scripts/logout_script.php"  //? potrebbe
@@ -101,7 +101,7 @@ export const CONFIG_BY_PATH = {
         homepage: "../pages/website_intro.php",
         restaurants: "restaurants.php",
         index: null,
-        registrazione: null,
+        registration: null,
         benvenuto: "#",
         profile: "profile.php",
         logout: "scripts/logout_script.php"
@@ -110,7 +110,7 @@ export const CONFIG_BY_PATH = {
         homepage: "../pages/website_intro.php",
         restaurants: "restaurants.php",
         index: null,
-        registrazione: null,
+        registration: null,
         benvenuto: "welcome.php",
         profile: "#",
         logout: "scripts/logout_script.php"
@@ -119,7 +119,7 @@ export const CONFIG_BY_PATH = {
         homepage: "../pages/website_intro.php",
         restaurants: "restaurants.php",
         index: "../index.php",                      //? potrebbe
-        registrazione: "../php/registration.php",   //? potrebbe
+        registration: "../php/registration.php",   //? potrebbe
         benvenuto: "welcome.php",                   //? potrebbe
         profile: "profile.php",                     //? potrebbe
         logout: "scripts/logout_script.php"         //? potrebbe

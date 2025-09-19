@@ -1,15 +1,15 @@
 import {getGoodPath} from "../modules/relocator.js";
 import { askIfLogged } from "../modules/utils.js";
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
     let currentPath = window.location.pathname;
     let good_path = getGoodPath(currentPath, "php/scripts/logout_script.php");
     createBox(good_path);
-    if(await askIfLogged()) {
-        document.addEventListener("right-created", function (event) {
+    document.addEventListener("right-created", async function (event) {
+        if(await askIfLogged()) {
             createLogoutButton();
-        })
-    }
+        }
+    });
 });
 
 function createBox(path) {

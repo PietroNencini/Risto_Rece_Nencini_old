@@ -5,6 +5,10 @@ export function getGoodPath(passed_path, from_base_to_destination) {
 
     let nearest_base_folder = findBaseFolder(passed_path);
 
+    if(nearest_base_folder == -1) {
+        return "./" + from_base_to_destination;
+    }
+
     // Se la cartella di base esiste esiste nel percorso, rimuovi tutto ciò che viene prima
     let index = passed_path.indexOf(nearest_base_folder);
     let cleanedPath = index !== -1 ? passed_path.slice(index) : passed_path;

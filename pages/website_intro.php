@@ -38,9 +38,9 @@
 
 <body id="info_page" class="has_footer">
 
-    <header class="w-100 bg-warning">
+    <header class="w-100 bg-warning nav_bar_keeper">
         <div class="container">
-            <nav class="navbar navbar-expand-lg sticky-top">
+            <!--<nav class="navbar navbar-expand-lg sticky-top">
                 <div class="container-fluid fs-5">
                     <a class="navbar-brand jaini text-center" href="#">
                         <span style="font-size: 3rem;">
@@ -66,6 +66,7 @@
                         <div class="ms-auto" role="search">
                             <div class="profile_elements" id="nav_right">
                                 <?php
+                                    /* 
                                     if(isset($_SESSION["session_user"])) {
                                         echo "<a class='nav-link' href='../php/profile.php'>
                                             <span class='d-flex align-items-center'></span>
@@ -84,69 +85,34 @@
                                                 </button>
                                             </a>";
                                     }
+                                    */
                                 ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav>-->
         </div>
     </header>
 
-    <!--
-    <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
-            <div class="container-fluid fs-5">
-                <a class="navbar-brand jaini text-center" href="../pages/website_intro.php">
-                    <span style="font-size: 3rem;">
-                        <img alt="risto&rece" class="d-inline-block align-text-center" src="../images/icons/R&R_definitivo.png" width="96" />
-                        <span class="ms-2">RISTO&RECE</span>
-                    </span>
-                </a>
-                <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse ps-3" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/website_intro.php">Homepage</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Indice</a>
-                        </li>
-                    </ul>
-                    <div class="ms-auto" role="search">
-                        <div class="profile_elements" id="nav_right">
-                            <a class="nav-link w-50" href="../#">
-                                <button class="btn btn-primary fw-bold">REGISTRATI</button>
-                            </a>
-                            <a class="nav-link w-50" href="../">
-                                <button class="btn btn-success fw-bold">ACCEDI</button>
-                            </a>
-                        </div>
+
+        <div class="content">
+            <div class="w-75 mx-auto bg-secondary-subtle p-5 rounded-5" id="informazioni">
+                <div class="row">
+                    <div class="col col-md-6 fs-5">
+                        <p> Risto&Rece è il nostro servizio che permette di lasciare recensioni nei tuoi ristoranti preferiti </p>
+                        <p> Ogni utente può lasciare una recensione e visualizzare le recensioni dei ristoranti </p>
+                        <p> <b><?php echo $total_users ?></b> utenti si sono già uniti alla nostra community, fallo anche tu!</p>
+                    </div>
+                    <div class="col col-md-6">
+                        <img src="../images/icons/R&R.png" width="256px" height="256px" alt="logo" class="d-block mx-auto">
                     </div>
                 </div>
             </div>
-        </nav>
-                                -->
-
-    <div class="content">
-        <div class="w-75 mx-auto bg-secondary-subtle p-5 rounded-5" id="informazioni">
-            <div class="row">
-                <div class="col col-md-6 fs-5">
-                    <p> Risto&Rece è il nostro servizio che permette di lasciare recensioni nei tuoi ristoranti preferiti </p>
-                    <p> Ogni utente può lasciare una recensione e visualizzare le recensioni dei ristoranti </p>
-                    <p> <b><?php echo $total_users ?></b> utenti si sono già uniti alla nostra community, fallo anche tu!</p>
-                </div>
-                <div class="col col-md-6">
-                    <img src="../images/icons/R&R.png" width="256px" height="256px" alt="logo" class="d-block mx-auto">
-                </div>
-            </div>
         </div>
-    </div>
 
     <!--finestra di LOGOUT (si apre al click del pulsante prima)-->
-    <div id="logout-box" class="d-none">
-    </div>
+    <div id="logout-box" class="d-none"></div>
 
     <!--? SCRIPT DI BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -154,6 +120,7 @@
         crossorigin="anonymous"></script>
     <!--SCRIPT PERSONALI-->
     <script src="../javascript/frontend/script.js"> </script>
+    <script type="module" src="../javascript/frontend/navbar.js"></script>
     <script src="../javascript/frontend/footer.js"> </script>
     <?php
         if(isset($_SESSION["session_user"])) {

@@ -5,7 +5,7 @@ let markerGroup = {};
 
 //todo : Utilizzare al posto del PHP per prendere le coordinate
 function getCoordinates(id_ristorante) {
-    fetch("../php/scripts/get_coordinates.php?id_ristorante=" + id_ristorante, {
+    fetch("../php/servers/get_coordinates.php?id_ristorante=" + id_ristorante, {
         method: GET,
     })
     .then(response => response.json())

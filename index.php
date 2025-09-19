@@ -3,6 +3,10 @@
 
     if (!isset($_SESSION["error_code"]))
         $_SESSION["error_code"] = 0;
+    if(isset($_SESSION["session_user"])) {
+        header("Location: php/welcome.php");
+        exit;
+    }
 
 ?>
 
@@ -35,7 +39,7 @@
 
     <header class="nav_bar_keeper w-100 bg-warning">
         <div class="container">
-            <nav class="navbar navbar-expand-lg sticky-top">
+            <!--<nav class="navbar navbar-expand-lg sticky-top">
                 <div class="container-fluid fs-5">
                     <a class="navbar-brand jaini text-center" href="./pages/website_intro.php">
                         <span style="font-size: 3rem;">
@@ -65,7 +69,7 @@
                                     </button>
                                 </a>
                             
-                            
+                            -->
                                 <!--<a class="nav-link" href="../php/profile.php">
                                     <span class="d-flex align-items-center"></span>
                                         <i class="bi bi-person-fill" style="font-size: 3rem;" id="profile_icon"></i>
@@ -73,11 +77,12 @@
                                 </a>-->
                             
                                 <!--<button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>-->
-                            </div>
+                            <!--</div>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav>-->
+
         </div>
     </header>
     
@@ -138,6 +143,7 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
         <!--? JAVASCRIPT PERSONALE-->
+        <script type="module" src="./javascript/frontend/navbar.js"></script>
         <script src="./javascript/frontend/script.js"></script>
         <script src="./javascript/frontend/footer.js"></script>
 </body>

@@ -40,6 +40,7 @@
         
         <header class="nav_bar_keeper w-100 bg-warning">
             <div class="container">
+                <!--
                 <nav class="navbar navbar-expand-lg sticky-top">
                     <div class="container-fluid fs-5">
                         <a class="navbar-brand jaini text-center" href="../pages/website_intro.php">
@@ -70,12 +71,12 @@
                                         </span>
                                     </a>
                                 
-                                    <!--<button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>-->
+                                    <button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </nav>
+                </nav> -->
             </div>
         </header>
 
@@ -136,6 +137,7 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
         <!--SCRIPT PERSONALI-->
+        <script type="module" src="../javascript/frontend/navbar.js"></script>
         <script src="../javascript/frontend/script.js"></script>
         <script src="../javascript/frontend/footer.js"></script>
         <script type="module" src="../javascript/frontend/logout.js"></script>

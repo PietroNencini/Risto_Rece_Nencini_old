@@ -10,17 +10,20 @@ let user_is_logged;
 //*inizio script esecuzione (escludendo le costanti dichiarate sopra)
 document.addEventListener("DOMContentLoaded", async function () {
     user_is_logged = await askIfLogged();
-    console.log(user_is_logged);
+    //console.log(user_is_logged);
     let cleaned_path = findFromBaseToDestination(position);
+    console.log("Percorso pulito: " + cleaned_path);
     let config = CONFIG_BY_PATH[cleaned_path];
+    console.log(config);
     prepareNavBar(config);
 });
 
 function prepareNavBar(link_list) {
 
-let nav_space = document.querySelector("header.nav_bar_keeper > div.container");
+    let nav_space = document.querySelector("header.nav_bar_keeper > div.container");
+    
     if(nav_space == null) {
-        console.log("Non ci sono elementi");
+        console.error("Importato navbar senza elementi adeguati");
     } else {
         createNav(nav_space, link_list);
     }
@@ -36,7 +39,8 @@ let img_span = document.createElement("span");
 img_span.style.fontSize = "3rem";
 
 let img = document.createElement("img");
-img.src = "../images/icons/R&R_definitivo.png";
+//img.src = "../../images/icons/R&R_definitivo.png";
+img.src = getGoodPath(position, "/images/icons/R&R_definitivo.png");
 img.alt = "risto&rece";
 img.width = 96;
 img.className = "d-inline-block align-text-center";
@@ -93,7 +97,7 @@ function createRightSection(config, user_is_logged, position) {
 if (user_is_logged) {
     let profileLink = document.createElement("a");
     profileLink.className = "nav-link";
-    profileLink.href = getGoodPath(position, config.profile || "#");
+    profileLink.href = config.profile == "#" ? "#" : getGoodPath(position, config.profile);
 
     let iconSpan = document.createElement("span");
     iconSpan.className = "d-flex align-items-center";
@@ -103,30 +107,37 @@ if (user_is_logged) {
     icon.style.fontSize = "3rem";
     icon.id = "profile_icon";
 
+    if(config.profile == "#") {
+        icon.style.opacity = "1";
+    }
+
     iconSpan.appendChild(icon);
     profileLink.appendChild(iconSpan);
     form.appendChild(profileLink);
     
 } else {
-    let registerLink = document.createElement("a");
-    registerLink.className = "nav-link w-50";
-    registerLink.href = getGoodPath(position, config.registration || "#");
-
-    let registerButton = document.createElement("button");
-    registerButton.className = "btn btn-primary fw-bold";
-    registerButton.innerText = "REGISTRATI";
-    registerLink.appendChild(registerButton);
-    form.appendChild(registerLink);
-
-    let loginLink = document.createElement("a");
-    loginLink.className = "nav-link w-50";
-    loginLink.href = "../";
-
-    let loginButton = document.createElement("button");
-    loginButton.className = "btn btn-success fw-bold";
-    loginButton.innerText = "ACCEDI";
-    loginLink.appendChild(loginButton);
-    form.appendChild(loginLink);
+    if(config.registration != null) {
+        let registerLink = document.createElement("a");
+        registerLink.className = "nav-link w-50";
+        registerLink.href = getGoodPath(position, config.registration);
+    
+        let registerButton = document.createElement("button");
+        registerButton.className = "btn btn-primary fw-bold";
+        registerButton.innerText = "REGISTRATI";
+        registerLink.appendChild(registerButton);
+        form.appendChild(registerLink);
+    }
+    if(config.index != null) {
+        let loginLink = document.createElement("a");
+        loginLink.className = "nav-link w-50";
+        loginLink.href = getGoodPath(position, config.index);
+    
+        let loginButton = document.createElement("button");
+        loginButton.className = "btn btn-success fw-bold";
+        loginButton.innerText = "ACCEDI";
+        loginLink.appendChild(loginButton);
+        form.appendChild(loginLink);
+    }
 }
 
 return form;

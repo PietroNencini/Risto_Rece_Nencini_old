@@ -13,7 +13,7 @@ function createFooter() {
     let row = document.createElement("div");
     row.className = "row";
     let col1 = createFooterColumn("Chi siamo", "C'è scritto tutto sulla Homepage, niente da vedere qui", "🛈");
-    let col2 = createFooterColumn("Contatti", "Sviluppatore: bobdev@gmail.com <br> Amministratore: ristorece.admin@info.it", "📞");
+    let col2 = createFooterColumn("Contatti", "Sviluppatore: utenteacaso@gmail.com <br> Amministratore: ristorece.admin@info.it", "📞");
     let col3 = createFooterColumn("Privacy", "Garantita la sicurezza sulle informazioni utente <br> Per informazioni chiedere al vicino di casa", "🔒");
     let col4 = createFooterColumn("Seguici", "SCHERZO! Il budget non permette ancora di avere una nostra pagina sui social", "🌍");
 

@@ -14,6 +14,10 @@
 
     $id_rest = $_GET["nome_ristorante"];
 
+    if($id_rest == "not_available") {
+        header("Location: welcome.php");
+        $_SESSION["error_code"] = 11;
+    }
 
     if($result = $conn->query("SELECT nome, indirizzo, citta as città, latitudine, longitudine FROM ristorante WHERE id_ristorante = $id_rest")) {
 
@@ -51,16 +55,11 @@
             crossorigin=""/>
     </head>
 
-    <body id="restaurant_info_page" class="has_footer" onload="showMap('rest_map' ,<?php echo $info_ristorante['latitudine'] ?>, <?php echo $info_ristorante['longitudine'] ?>)">
-        
-        <!--<header class="d-flex align-items-center justify-content-center bg-warning">
-            <span><img id="icon" src="../images/icons/R&R_definitivo.png" alt="risto&rece" width="96px" class="d-block mx-auto"></span>
-            <h1 class="home_title jaini text-center"> RISTO&RECE </h1>
-        </header>-->
+    <body id="restaurant_info_page" class="has_footer" onload="showMap('rest_map', <?php echo $id_rest ?>)">
 
         <header class="nav_bar_keeper w-100 bg-warning">
             <div class="container">
-                <nav class="navbar navbar-expand-lg sticky-top">
+                <!--<nav class="navbar navbar-expand-lg sticky-top">
                     <div class="container-fluid fs-5">
                         <a class="navbar-brand jaini text-center" href="../pages/website_intro.php">
                             <span style="font-size: 3rem;">
@@ -90,12 +89,13 @@
                                         </span>
                                     </a>
                                 
-                                    <!--<button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>-->
+                                    <button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>
+ 
                                 </div>
                             </div>
                         </div>
                     </div>
-                </nav>
+                </nav>-->
             </div>
         </header>
 
@@ -117,7 +117,7 @@
                         <p> <?php echo $info_ristorante["città"]; ?> </p>
                     </div>
                 </div>
-                <div class="">
+                <div class="col">
                     <div class="info_show">
                         <img src="../images/planet.png" alt="posizione:">
                         <p> <?php echo $info_ristorante["latitudine"] . ", " . $info_ristorante["longitudine"]; ?></p>

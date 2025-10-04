@@ -82,6 +82,9 @@
                     case 3:
                         $output = "<p class='bg-danger text-white fw-bold text-center rounded-3 mt-2 mb-3 fs-3'> ERRORE: impossibile connettersi al servizio </p>";
                         break;
+                    case 11:
+                        $output = "<p class='bg-danger text-white fw-bold text-center rounded-3 mt-2 mb-3 fs-3'> ERRORE: Nessun ristorante presente </p>";
+                        break;    
                     default:
                         getOut();
                         exit;
@@ -149,7 +152,7 @@
                 <button type="submit" class="btn btn-primary w-25 mt-3 fw-bolder"> INSERISCI </button>
             </form> 
             <div id="admin_map" style="height: 400px;" class="my-3 w-75 mx-auto">
-
+                
             </div>
         </div>
 

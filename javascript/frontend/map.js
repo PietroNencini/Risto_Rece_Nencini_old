@@ -14,7 +14,7 @@ function getCoordinates(id_ristorante) {
     })
 }
 
-function showMap(mapId, latit, longit, marker = true, clickable = false){  
+function showMap(mapId, rest_ID = null, marker = true, clickable = false){  //MapId può corrispondere all'ID del ristorante oppure a un ID per riconoscere   
     console.log("ID mappa: " + mapId);
     if(!maps[mapId]) {
         maps[mapId] = {
@@ -23,6 +23,9 @@ function showMap(mapId, latit, longit, marker = true, clickable = false){
         };
         markerGroup[mapId] = L.layerGroup().addTo(maps[mapId].mapInstance);
     }
+
+    let coords = getCoordinates(mapId)
+
     maps[mapId].mapInstance.setView([latit, longit], DEFAULT_ZOOM);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 20,
@@ -58,6 +61,6 @@ function manageMapClick(e, mapId) {
         inputs[0].value = coords.lat;
         inputs[1].value = coords.lng;
     } else  {
-        console.log("ERRORE: Non ci sono abbastanza input, i valori non vengono assegnati");
+        console.warn("ERRORE: Non ci sono abbastanza input, i valori non vengono assegnati");
     }
 }

@@ -9,15 +9,16 @@
 
     if($stmt->execute()) {
 
-        $result = $result->fetch_assoc();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
 
     } else {
         header("Location: ../../pages/error.html");
         exit;
     }
 
-    $lat = $result['lat'];
-    $lon = $result['lon'];
+    $lat = $row['lat'];
+    $lon = $row['lon'];
     $data = array('lat'=>$lat , 'lon'=>$lon);
     echo json_encode($data);
 

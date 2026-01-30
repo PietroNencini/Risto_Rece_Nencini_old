@@ -1,20 +1,28 @@
 const DEFAULT_ZOOM = 17
+const DEFAULT_LATIT = 43.773118;
+const DEFAULT_LONGIT = 11.255558
 
 let maps = {};
 let markerGroup = {};
 
-//todo : Utilizzare al posto del PHP per prendere le coordinate
-function getCoordinates(id_ristorante) {
-    fetch("../php/servers/get_coordinates.php?id_ristorante=" + id_ristorante, {
-        method: GET,
-    })
-    .then(response => response.json())
-    .then(data => {
-        return [data.lat, data.lon]; 
-    })
+async function getCoordinates(id_ristorante) { 
+    
+    const response =  await fetch(
+        "../php/servers/get_coordinates.php?id_ristorante=" + id_ristorante, 
+        {
+            method: 'GET',
+        }
+    );
+    
+    const data = await response.json();
+    
+    return new Map([
+        ["latit", data.lat],
+        ["longit", data.lon]
+    ]); 
 }
 
-function showMap(mapId, rest_ID = null, marker = true, clickable = false){  //MapId può corrispondere all'ID del ristorante oppure a un ID per riconoscere   
+async function showMap(mapId, rest_ID = null, marker = true, clickable = false){   
     console.log("ID mappa: " + mapId);
     if(!maps[mapId]) {
         maps[mapId] = {
@@ -24,9 +32,21 @@ function showMap(mapId, rest_ID = null, marker = true, clickable = false){  //Ma
         markerGroup[mapId] = L.layerGroup().addTo(maps[mapId].mapInstance);
     }
 
-    let coords = getCoordinates(mapId)
+    let latit, longit;
+    if(rest_ID != null) {
+        const COORD = await getCoordinates(rest_ID);
+        latit = COORD.get("latit");
+        longit = COORD.get("longit");        
+    } else {
+        latit = DEFAULT_LATIT;
+        longit = DEFAULT_LONGIT;
+    }
 
-    maps[mapId].mapInstance.setView([latit, longit], DEFAULT_ZOOM);
+    maps[mapId].mapInstance.setView(
+        [latit, longit],
+        DEFAULT_ZOOM
+    );
+
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 20,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

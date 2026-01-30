@@ -1,6 +1,6 @@
-<!--Edit attribute values with your DB parameters-->
-
 <?php
+	// Edit attribute values with your DB parameters
+	
 	$servernameDB = "localhost";
 	$usernameDB = "root";
 	$passwordDB = "";     // Di default quando si installa XAMPP la password è vuota

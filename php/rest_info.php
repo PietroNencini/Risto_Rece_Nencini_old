@@ -59,43 +59,7 @@
 
         <header class="nav_bar_keeper w-100 bg-warning">
             <div class="container">
-                <!--<nav class="navbar navbar-expand-lg sticky-top">
-                    <div class="container-fluid fs-5">
-                        <a class="navbar-brand jaini text-center" href="../pages/website_intro.php">
-                            <span style="font-size: 3rem;">
-                                <img src="../images/icons/R&R_definitivo.png" alt="risto&rece" width="96px"
-                                class="d-inline-block align-text-center">
-                            <span class="ms-2">RISTO&RECE </span> </span>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse ps-3" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../pages/website_intro.php">Homepage</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Area Personale</a>
-                                </li>
-                                
-                            </ul>
-                            <div class="ms-auto" role="search">
-                                <div class="profile_elements" id="nav_right">
-                                    <a class="nav-link" href="profile.php">
-                                        <span class="d-flex align-items-center"></span>
-                                            <i class="bi bi-person-fill" style="font-size: 3rem;" id="profile_icon"></i>
-                                        </span>
-                                    </a>
-                                
-                                    <button id="logout_button" type="submit" class="w-25 btn btn-danger fw-bold fs-5 d-block mx-auto" onclick="show('logout-box', 'flex'), disable_scroll()"> LOGOUT </button>
- 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>-->
+                <!--javascript è il tuo momento-->
             </div>
         </header>
 
